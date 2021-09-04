@@ -5,7 +5,6 @@ except ImportError:
 from PIL import ImageEnhance, ImageFilter
 from pytesseract import image_to_string, image_to_boxes
 import json, os, re, urllib.request
-from dotenv import load_dotenv
 from telebot import TeleBot
 
 
@@ -19,8 +18,6 @@ def ExportURL(image):
     url = re.findall("(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+", t)
     return "\n".join(url) if len(url) > 0 else "there no links"
 
-
-load_dotenv()
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 bot = TeleBot(BOT_TOKEN)
